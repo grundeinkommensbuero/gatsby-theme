@@ -8,8 +8,8 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
-    const staticPage = path.resolve('./src/components/StaticPage/index.js');
-    const blogPost = path.resolve('./src/components/BlogPost/index.js');
+    const staticPage = require.resolve('./src/components/StaticPage/index.js');
+    const blogPost = require.resolve('./src/components/BlogPost/index.js');
 
     resolve(
       graphql(
@@ -91,7 +91,7 @@ exports.onCreatePage = async ({ page, actions }) => {
 
   if (page.path.match(/^\/mensch/)) {
     page.matchPath = '/mensch/*';
-    page.component = path.resolve('src/pages/mensch/index.js');
+    page.component = require.resolve('./src/pages/mensch/index.js');
     createPage(page);
   }
 };
