@@ -141,4 +141,9 @@ if (contentfulConfig.spaceId || contentfulConfig.accessToken) {
   /* eslint-enable */
 }
 
-module.exports = config;
+module.exports = options => {
+  console.log('***');
+  console.log(options.message);
+  console.log('***');
+  return config;
+};
