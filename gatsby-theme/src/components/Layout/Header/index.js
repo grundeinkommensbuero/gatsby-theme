@@ -5,8 +5,10 @@ import { OverlayContext } from '../../../context/Overlay';
 import { Button } from '../../Forms/Button';
 
 import s from './style.module.less';
-import Logo from './logo.svg';
+import Logo from '../../../assets/logo.svg';
 import Menu from './Menu';
+
+console.log(Logo);
 
 const Header = ({ menu, hasOverlay }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -63,5 +65,22 @@ const Header = ({ menu, hasOverlay }) => {
     </header>
   );
 };
+
+// const logoQuery = graphql`
+//   query LogoQuery {
+//     site {
+//       siteMetadata {
+//         author
+//       }
+//     }
+//     avatar: file(absolutePath: { regex: "/avatar.(jpeg|jpg|gif|png)/" }) {
+//       childImageSharp {
+//         fixed(width: 48, height: 48) {
+//           ...GatsbyImageSharpFixed
+//         }
+//       }
+//     }
+//   }
+// `;
 
 export default Header;
