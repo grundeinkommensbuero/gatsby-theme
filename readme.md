@@ -5,6 +5,8 @@
 Develop theme: `yarn workspace gatsby-theme develop`
 Develop site: `yarn workspace site develop`
 
+## Shadow site
+
 ## Configure site
 
 In `./site/gatsby-config.js` pass parameters to the gatsby-theme via the `options` object:
@@ -50,7 +52,7 @@ Only if necessary, we want to pass javascript-parameters to the file via the `ga
 2. Creating `src/assets` all reusable assets that are not tightly coupled to a component should be there.
 3. The main less-definitions – `base.less`, `vars.less`, `webfont.less` – should be split up into `{file}_config.less`, `{file}_default.less` and `{file}.less}` components:
 
-   1. \_default: sets the white-label-theme
+   1. \_default: sets the white-label-theme --> _What color scheme should be the white-label-theme?_
    2. \_config: can be shadowed by the users of the theme (and us) to overwrite and add to the defaults.
    3. {file}.less imports both so the defaults are always defined, even if users choose to only partially change them
 
@@ -86,11 +88,22 @@ The `_config` would be shadowed in our use case:
 _Can we think about other useful variables to expose to users?_
 
 - Paddings and margins?
-- Button-related: hoverColor, borderRadius?
+  - spacing-unit -> nice-to-have
+- Button-related: hoverColor,
+  - borderRadius -> todo
 - Link-stylings, hoverColor, underLine?
+  - difficult to implement with inlineButtons -> nice-to-have
+- body-tag: font-size (default)
+  -> todo
+- background-image im header -> todo
 
 ### tbd
 
 1. Supporting different file formats for the Logo?
+   --> todo
+   --> Check if possible to allow different formats in webpack
+   --> Option to provide a link
 2. Changing import of SVGs, so they support currentColor vs. hardCoded
+   --> Inline SVG loader is available somewhere already
+   /gatsby-theme/gatsby-theme/src/components/AboutUs/index.js
 3. …
