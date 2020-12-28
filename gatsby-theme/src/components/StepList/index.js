@@ -3,11 +3,11 @@ import cN from 'classnames';
 import s from './style.module.less';
 
 const ICONS = {
-  mail: require('./mail.svg'),
-  stack: require('./stack.svg'),
-  print: require('./print.svg'),
-  send: require('./send.svg'),
-  download: require('./download.svg'),
+  mail: require('../../assets/icons/mail_yellow.svg'),
+  stack: require('../../assets/icons/stack.svg'),
+  print: require('../../assets/icons/print.svg'),
+  send: require('../../assets/icons/send.svg'),
+  download: require('../../assets/icons/download.svg'),
 };
 
 export function StepList({ children, className }) {

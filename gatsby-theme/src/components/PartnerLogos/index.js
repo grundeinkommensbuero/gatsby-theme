@@ -6,7 +6,7 @@ import { shouldShowPartners } from '../utils';
 const partners = [
   {
     name: 'Mein Grundeinkommen',
-    image: require('./meinbge_blue.svg'),
+    image: require('../../assets/brands/meinbge_blue.svg'),
   },
 ];
 

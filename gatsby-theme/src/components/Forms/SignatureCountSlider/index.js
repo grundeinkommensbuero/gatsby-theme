@@ -5,12 +5,12 @@ import cN from 'classnames';
 import { shuffle } from '../../utils';
 
 const HAND_ILLUSTRATIONS = [
-  require('./hand_1.svg'),
-  require('./hand_2.svg'),
-  require('./hand_3.svg'),
-  require('./hand_4.svg'),
-  require('./hand_5.svg'),
-  require('./hand_6.svg'),
+  require('../../../assets/pointers/hand_1.svg'),
+  require('../../../assets/pointers/hand_2.svg'),
+  require('../../../assets/pointers/hand_3.svg'),
+  require('../../../assets/pointers/hand_4.svg'),
+  require('../../../assets/pointers/hand_5.svg'),
+  require('../../../assets/pointers/hand_6.svg'),
 ];
 
 const MAX_HANDS = 100;

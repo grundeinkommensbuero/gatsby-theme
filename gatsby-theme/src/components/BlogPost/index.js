@@ -10,7 +10,7 @@ import {
 } from '../Layout/Sections';
 import s from './style.module.less';
 import { formatDate } from '../utils';
-import OGImage from './blog_og.png';
+import OGImage from '../../assets/blog/blog_og.png';
 import html2plaintext from 'html2plaintext';
 
 export default ({

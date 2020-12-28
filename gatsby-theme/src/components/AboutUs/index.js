@@ -4,9 +4,9 @@ import cN from 'classnames';
 import Img from 'gatsby-image';
 
 const ICONS = {
-  twitter: require('!svg-inline-loader!./icons/twitter-brands.svg'),
-  linkedin: require('!svg-inline-loader!./icons/linkedin-brands.svg'),
-  website: require('!svg-inline-loader!./icons/globe-europe-solid.svg'),
+  twitter: require('!svg-inline-loader!../../assets/brands/twitter.svg'),
+  linkedin: require('!svg-inline-loader!../../assets/brands/linkedin.svg'),
+  website: require('!svg-inline-loader!../../assets/icons/globe-europe-solid.svg'),
 };
 
 const AboutUs = ({ members, className }) => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import s from './style.module.less';
 import cN from 'classnames';
-import SpeechbubbleTop from '!svg-inline-loader!./speechbubble_top.svg';
-import SpeechbubbleBottom from '!svg-inline-loader!./speechbubble_bottom.svg';
+import SpeechbubbleTop from '!svg-inline-loader!../../../assets/pointers/speechbubble_top.svg';
+import SpeechbubbleBottom from '!svg-inline-loader!../../../assets/pointers/speechbubble_bottom.svg';
 
 export const Speechbubble = ({ children, className, isSmall = false }) => (
   <div className={cN(s.container, className, { [s.small]: isSmall })}>

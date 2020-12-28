@@ -23,8 +23,8 @@ export default ({ signaturesId, disableRequestListsByMail }) => {
   const [loginCodeRequested, setLoginCodeRequested] = useState();
   const { isAuthenticated, userId } = useContext(AuthContext);
   const isDisabledRequestListsByMail = !!disableRequestListsByMail;
-  const iconMail = require('./mail_red.svg');
-  const iconIncognito = require('./incognito_red.svg');
+  const iconMail = require('../../../assets/icons/mail.svg');
+  const iconIncognito = require('../../../assets/icons/incognito.svg');
 
   useEffect(() => {
     // If user was registered proceed by creating list
