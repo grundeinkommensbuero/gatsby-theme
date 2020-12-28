@@ -7,7 +7,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background: @white;
+  background: @menuBackgroundColor;
   grid-template-rows: @headerHeight;
 
   @media (max-width: @breakPointS) {
@@ -77,7 +77,7 @@
 }
 
 .menuButtonBar {
-  background: @red;
+  background: @sectionColor2;
   height: 0.3rem;
 }
 
@@ -88,7 +88,7 @@
 
 .ctaButton {
   align-self: center;
-  --font-color: @red;
+  --font-color: @sectionColor2;
   animation-name: wiggle;
   animation-duration: 8s;
   animation-iteration-count: infinite;
@@ -102,7 +102,7 @@
     transform: rotate(20deg);
 
     &:not(:hover) {
-      background: @grey !important;
+      background: @sectionColor3 !important;
     }
   }
 

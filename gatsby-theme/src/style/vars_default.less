@@ -1,20 +1,15 @@
-// Mapping more abstract variable names
-// to the color scheme of XBGE:
-@primarycolor: #fc484c;
-@secondarycolor: #22c8ee;
-@tertiarycolor: #fef377;
-
 @fontStack: Tahoma, Arial, Helvetica, sans-serif;
 
-@red: @primarycolor;
-@blueBright: @secondarycolor;
-@blueDark: #3423f6;
-@rose: #e5b5c8;
-@pink: #7d69f6;
-@yellow: @tertiarycolor;
-@grey: #f0f0f0;
-@greyBright: #f5f5f5;
-@white: white;
+@sectionColor1: #fef377;        // @yellow
+@sectionColor2: #fc484c;        // @red
+@textOnSectionColor2: #f5f5f5;  // @greyBright
+@sectionColor3: #f0f0f0;        // @grey
+@accentColor1: #22c8ee;         // @blueBright
+@accentColor2: #3423f6;         // @blueDark
+@accentColor3: #e5b5c8;         // @rose
+@accentColor4: #7d69f6;         // @pink
+@menuBackgroundColor: white;    // @white
+@strokeOnIcons: #1D1D1B;        // @black
 
 @fontSizeXXXL: 4rem;
 @fontSizeXXL: 3rem;
@@ -88,18 +83,18 @@
   background: repeating-linear-gradient(
       -5deg,
       transparent,
-      @red 1px,
+      @sectionColor2 1px,
       transparent 2px,
       transparent 10rem
     ),
     repeating-linear-gradient(
       -95deg,
       transparent,
-      @red 1px,
+      @sectionColor2 1px,
       transparent 2px,
       transparent 10rem
     ),
-    @yellow;
+    @sectionColor1;
 }
 
 .menuLink() {

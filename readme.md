@@ -59,6 +59,7 @@ Only if necessary, we want to pass javascript-parameters to the file via the `ga
 
 1. Renaming variables in `style/vars_default.less`:
 
+Idea:
 ```less
 @red: --> @primaryColor
 @blueBright: --> @secondaryColor
@@ -68,6 +69,18 @@ Only if necessary, we want to pass javascript-parameters to the file via the `ga
 @greyBright: --> @lightGrey
 @white: --> @white (@background)
 --> @black
+```
+Result:
+```less
+@sectionColor1: #fef377;        // @yellow
+@sectionColor2: #fc484c;        // @red
+@textOnSectionColor2: #f5f5f5;  // @greyBright
+@sectionColor3: #f0f0f0;        // @grey
+@accentColor1: #22c8ee;         // @blueBright
+@accentColor2: #3423f6;         // @blueDark
+@accentColor3: #e5b5c8;         // @rose
+@accentColor4: #7d69f6;         // @pink
+@menuBackgroundColor: white;    // @white
 ```
 
 **--> Necessary re-factor in the individual style modules in the components**
@@ -105,4 +118,3 @@ _Can we think about other useful variables to expose to users?_
 2. Changing import of SVGs, so they support currentColor vs. hardCoded
    --> Inline SVG loader is available somewhere already
    /gatsby-theme/gatsby-theme/src/components/AboutUs/index.js
-3. …

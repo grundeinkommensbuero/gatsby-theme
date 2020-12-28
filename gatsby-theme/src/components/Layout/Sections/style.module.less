@@ -10,12 +10,12 @@
   }
 
   &:nth-child(3n + 1):not(:only-child) {
-    --bg-color: @yellow;
-    --font-color: @red;
-    --secondary-color: @blueBright;
-    --text-on-secondary-color: @yellow;
-    background-color: @yellow;
-    color: @red;
+    --bg-color: @sectionColor1;
+    --font-color: @sectionColor2;
+    --secondary-color: @accentColor1;
+    --text-on-secondary-color: @sectionColor1;
+    background-color: @sectionColor1;
+    color: @sectionColor2;
 
     &.sectionNewsletter {
       background-image: url('../../../assets/backgrounds/section_newsletter_red.svg');
@@ -23,18 +23,18 @@
   }
 
   &:nth-child(3n + 2) {
-    --bg-color: @red;
-    --font-color: @greyBright;
-    background-color: @red;
-    color: @greyBright;
+    --bg-color: @sectionColor2;
+    --font-color: @textOnSectionColor2;
+    background-color: @sectionColor2;
+    color: @textOnSectionColor2;
   }
 
   &:nth-child(3n + 3),
   &:only-child {
-    --bg-color: @grey;
-    --font-color: @red;
-    background-color: @grey;
-    color: @red;
+    --bg-color: @sectionColor3;
+    --font-color: @sectionColor2;
+    background-color: @sectionColor3;
+    color: @sectionColor2;
   }
 
   &:nth-child(3n + 1):not(:only-child),
@@ -307,7 +307,7 @@
 
 .sloganLine1 {
   grid-column: 3 / -1;
-  color: @blueBright;
+  color: @accentColor1;
 
   @media (max-width: @breakPointM) {
     grid-column-start: 2;
@@ -364,7 +364,7 @@
 }
 
 .heroImageOverlay {
-  background: @yellow;
+  background: @sectionColor1;
   position: absolute;
   top: 0;
   left: 0;
@@ -374,7 +374,7 @@
 }
 
 .sectionWithHeroImage {
-  text-shadow: 0 0 0.8rem fade(@yellow, 90);
+  text-shadow: 0 0 0.8rem fade(@sectionColor1, 90);
   min-height: 30vw;
   display: flex;
   align-items: flex-end;
