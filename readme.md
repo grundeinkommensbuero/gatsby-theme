@@ -36,6 +36,12 @@ module.exports = (options) => {
 };
 ```
 
+## For the documentation:
+
+- Explain shadowing and mention that you have to rebuild the dev bundle, if you added a new file that you want to be shadowed
+- Describe how the css-color-variables work in relation to the section colors, modals and buttons and show which files would have to be modified to change that
+- Explain shadowing for the Logo and how different file formats and file names are accepted, it will just take the first image (.png, .jpg, .svg) in `src/gatsby-theme/assets/logo`
+
 ## Suggested changes for the Design and Assets
 
 We mainly want to use gatsbys shadowing feature:
@@ -43,17 +49,19 @@ https://www.gatsbyjs.com/docs/themes/shadowing/
 
 Only if necessary, we want to pass javascript-parameters to the file via the `gatsby-config.js`
 
---> More freedom, but also responsibility for the users of the theme.
+--> More freedom, but also more responsibility for the users of the theme.
 
 ### For the gatsby-theme shadowing feature
 
-1. Moving `src/components/style` to `/src/style`
-2. Creating `src/assets` all reusable assets that are not tightly coupled to a component should be there.
-3. The main less-definitions – `base.less`, `vars.less`, `webfont.less` – should be split up into `{file}_config.less`, `{file}_default.less` and `{file}.less}` components:
+Done: Moving `src/components/style` to `/src/style`  
+Done: Creating `src/assets` all reusable assets ~~that are not tightly coupled to a component~~ should be there.  
+Done: The main less-definitions – `base.less`, `vars.less`, `webfont.less` – should be split up into `{file}_config.less`, `{file}_default.less` and `{file}.less}` components:
 
-   1. \_default: sets the white-label-theme --> _What color scheme should be the white-label-theme?_
-   2. \_config: can be shadowed by the users of the theme (and us) to overwrite and add to the defaults.
-   3. {file}.less imports both so the defaults are always defined, even if users choose to only partially change them
+   Done: \_default: sets the white-label-theme  
+   Done: \_config: can be shadowed by the users of the theme (and us) to overwrite and add to the defaults.
+   Done: {file}.less imports both so the defaults are always defined, even if users choose to only partially change them
+   **Todo**: --> _What color scheme should be the white-label-theme?_
+   **Todo**: Assets for the white-label-theme
 
 ### Less variables
 
@@ -70,7 +78,8 @@ Idea:
 @white: --> @white (@background)
 --> @black
 ```
-Result:
+
+Done:
 ```less
 @sectionColor1: #fef377;        // @yellow
 @sectionColor2: #fc484c;        // @red
@@ -81,11 +90,12 @@ Result:
 @accentColor3: #e5b5c8;         // @rose
 @accentColor4: #7d69f6;         // @pink
 @menuBackgroundColor: white;    // @white
+@strokeOnIcons: #1D1D1B;        // @black
 ```
 
 **--> Necessary re-factor in the individual style modules in the components**
 
-2. Adding variables in `style/vars_default.less`
+Done: Adding variables in `style/vars_default.less`
 
 ```less
 @fontStack: Tahoma, Arial, Helvetica, sans-serif;
@@ -99,22 +109,15 @@ The `_config` would be shadowed in our use case:
 
 _Can we think about other useful variables to expose to users?_
 
-- Paddings and margins?
-  - spacing-unit -> nice-to-have
-- Button-related: hoverColor,
-  - borderRadius -> todo
+Done: html-tag: font-size (default)  
+Done: background-image im header **Todo:** Renaming the files  
+Should be part of the documentation:
+- Paddings and margins
+- Button:hover uses css-variable in style-module: should be part of the documentation
 - Link-stylings, hoverColor, underLine?
-  - difficult to implement with inlineButtons -> nice-to-have
-- body-tag: font-size (default)
-  -> todo
-- background-image im header -> todo
 
-### tbd
 
-1. Supporting different file formats for the Logo?
-   --> todo
-   --> Check if possible to allow different formats in webpack
-   --> Option to provide a link
+Done: Supporting different file formats for the Logo --> shadowing a folder and grabbing first image in that folder with webpack **Todo**: Option to provide a link -> nice to have, but where? – 1. Contentful or 2. gatsby-config
 2. Changing import of SVGs, so they support currentColor vs. hardCoded
    --> Inline SVG loader is available somewhere already
    /gatsby-theme/gatsby-theme/src/components/AboutUs/index.js

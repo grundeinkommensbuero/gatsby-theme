@@ -5,13 +5,9 @@ require('dotenv').config({
 const html2plaintext = require('html2plaintext');
 
 module.exports = ({
-  message,
   siteUrl = 'https://expedition-grundeinkommen.de',
   matomoUrl = 'https://expeditiongrundeinkommen.matomo.cloud',
 }) => {
-  console.log('***');
-  console.log(message);
-  console.log('***');
   const url = siteUrl;
 
   const contentfulConfig = {
