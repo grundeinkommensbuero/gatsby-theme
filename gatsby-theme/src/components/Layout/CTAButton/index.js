@@ -2,10 +2,10 @@ import React from 'react';
 import s from './style.module.less';
 import cN from 'classnames';
 import { LinkButton, Button, LinkButtonLocal } from '../../Forms/Button';
-import POINT_LEFT_YELLOW from './figure_point_left_yellow.svg';
-import POINT_LEFT_MOBILE_YELLOW from './figure_point_left_mobile_yellow.svg';
-import POINT_LEFT_RED from './figure_point_left_red.svg';
-import POINT_LEFT_MOBILE_RED from './figure_point_left_mobile_red.svg';
+import POINT_LEFT_YELLOW from '../../../assets/pointers/figure_point_left_yellow.svg';
+import POINT_LEFT_MOBILE_YELLOW from '../../../assets/pointers/figure_point_left_mobile_yellow.svg';
+import POINT_LEFT_RED from '../../../assets/pointers/figure_point_left_red.svg';
+import POINT_LEFT_MOBILE_RED from '../../../assets/pointers/figure_point_left_mobile_red.svg';
 
 export const CTAButtons = ({ children }) => (
   <div className={s.buttons}>{children}</div>

@@ -2,8 +2,7 @@
 
 ## Yarn workspaces
 
-Develop theme: `yarn workspace gatsby-theme develop`
-Develop site: `yarn workspace site develop`
+Develop site: `yarn workspace site develop` (theme can not run in dev mode directly, since the gatsby-config is exported as a function)
 
 ## Shadow site
 

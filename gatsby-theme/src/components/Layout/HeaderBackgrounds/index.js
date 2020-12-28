@@ -2,10 +2,10 @@ import React from 'react';
 import s from './style.module.less';
 
 const BACKGROUNDS = [
-  require('./backgrounds/01.svg'),
-  require('./backgrounds/02.svg'),
-  require('./backgrounds/03.svg'),
-  require('./backgrounds/04.svg'),
+  require('../../../assets/backgrounds/header_01.svg'),
+  require('../../../assets/backgrounds/header_02.svg'),
+  require('../../../assets/backgrounds/header_03.svg'),
+  require('../../../assets/backgrounds/header_04.svg'),
 ];
 
 export default () => {

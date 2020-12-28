@@ -6,7 +6,7 @@ import { formatDateMonthYear } from '../utils';
 import { LinkButtonLocal, LinkButton } from '../Forms/Button';
 import { useSignatureCount } from '../../hooks/Api/Signatures/Get';
 import { Link } from 'gatsby';
-import eyeCatcherBackground from '!svg-inline-loader!./eye_catcher.svg';
+import eyeCatcherBackground from '!svg-inline-loader!../../assets/shapes/eye_catcher.svg';
 import { Tooltip } from '../Tooltip';
 import VisualCounter from '../VisualCounter';
 import { useGetCrowdfundingDirectly } from '../../hooks/Api/Crowdfunding';
@@ -220,7 +220,9 @@ export const Visualisation = ({
 
   const barGoalWidth = Math.min(100, ((goalInbetween || goal) / count) * 100);
 
-  const eyeCatcherLinkToDisplay = eyeCatcherLink ? eyeCatcherLink : (showCTA && ctaLink);
+  const eyeCatcherLinkToDisplay = eyeCatcherLink
+    ? eyeCatcherLink
+    : showCTA && ctaLink;
 
   return (
     <SectionInner
@@ -319,7 +321,10 @@ export const Visualisation = ({
               [s.eyeCatcherWithCta]: showCTA && ctaLink,
             })}
           >
-            <WrapInLink link={eyeCatcherLinkToDisplay} className={s.eyeCatcherLink}>
+            <WrapInLink
+              link={eyeCatcherLinkToDisplay}
+              className={s.eyeCatcherLink}
+            >
               <div
                 className={s.eyeCatcherBackground}
                 dangerouslySetInnerHTML={{ __html: eyeCatcherBackground }}

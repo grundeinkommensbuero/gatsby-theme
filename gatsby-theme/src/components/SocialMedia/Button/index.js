@@ -3,9 +3,9 @@ import s from './style.module.less';
 import cN from 'classnames';
 
 const icons = {
-  Facebook: require('!svg-inline-loader!./icons/facebook-brands.svg'),
-  Instagram: require('!svg-inline-loader!./icons/instagram-brands.svg'),
-  Twitter: require('!svg-inline-loader!./icons/twitter-brands.svg'),
+  Facebook: require('!svg-inline-loader!../../../assets/brands//facebook.svg'),
+  Instagram: require('!svg-inline-loader!../../../assets/brands/instagram.svg'),
+  Twitter: require('!svg-inline-loader!../../../assets/brands/twitter.svg'),
 };
 
 export default ({ link, label, className, icon, iconSize }) => (
