@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import s from './style.module.less';
 import cN from 'classnames';
-import Stage from '!svg-inline-loader?classPrefix=b-!../../assets/backgrounds/landing_figure-1-groups_stage-1.svg';
-import StageVertical from '!svg-inline-loader?classPrefix=a-&idPrefix=b-!../../assets/backgrounds/landing_figure-1-groups_stage-1-vertical.svg';
+import Stage from '!svg-inline-loader?classPrefix=b-!../../assets/backgrounds/landing_desktop.svg';
+import StageVertical from '!svg-inline-loader?classPrefix=a-&idPrefix=b-!../../assets/backgrounds/landing_mobile.svg';
 let interact;
 
 if (!process.env.STATIC) {

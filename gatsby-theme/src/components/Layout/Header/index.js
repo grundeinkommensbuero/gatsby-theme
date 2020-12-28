@@ -5,10 +5,15 @@ import { OverlayContext } from '../../../context/Overlay';
 import { Button } from '../../Forms/Button';
 
 import s from './style.module.less';
-import Logo from '../../../assets/logo.svg';
 import Menu from './Menu';
 
-console.log(Logo);
+const firstRequired = r => {
+  return r(r.keys()[0]);
+};
+
+const Logo = firstRequired(
+  require.context('../../../assets/logo', false, /\.(png|jpe?g|svg)$/)
+);
 
 const Header = ({ menu, hasOverlay }) => {
   const [menuOpen, setMenuOpen] = useState(false);

@@ -1,10 +1,9 @@
 const Promise = require('bluebird');
-const path = require('path');
 const GitRevisionPlugin = require('git-revision-webpack-plugin');
 const webpack = require('webpack');
 const gitRevisionPlugin = new GitRevisionPlugin();
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = ({ graphql, actions } /* themeOptions */) => {
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
