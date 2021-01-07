@@ -3,7 +3,7 @@ import cN from 'classnames';
 import s from './style.module.less';
 
 const ICONS = {
-  mail: require('../../assets/icons/mail_yellow.svg'),
+  mail: require('../../assets/icons/mail_sectionColor1.svg'),
   stack: require('../../assets/icons/stack.svg'),
   print: require('../../assets/icons/print.svg'),
   send: require('../../assets/icons/send.svg'),
