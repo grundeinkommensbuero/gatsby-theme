@@ -1,10 +1,10 @@
 import React from 'react';
 import Flowers from '../../assets/hurray/flowers.svg';
 import Hat from '../../assets/hurray/hat.svg';
-import Crowd1 from '../../assets/hurray/crowd1.svg';
-import Crowd2 from '../../assets/hurray/crowd2.svg';
-import Crowd1Red from '../../assets/hurray/crowd1_red.svg';
-import Crowd2Red from '../../assets/hurray/crowd2_red.svg';
+import Crowd1 from '../../assets/hurray/crowd1_sectionColor1.svg';
+import Crowd2 from '../../assets/hurray/crowd2_sectionColor1.svg';
+import Crowd1Red from '../../assets/hurray/crowd1_sectionColor2.svg';
+import Crowd2Red from '../../assets/hurray/crowd2_sectionColor2.svg';
 import s from './style.module.less';
 
 export const HurrayCrowd = ({ color }) => (

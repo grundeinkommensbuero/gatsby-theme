@@ -2,10 +2,10 @@ import React from 'react';
 import s from './style.module.less';
 import cN from 'classnames';
 import { LinkButton, Button, LinkButtonLocal } from '../../Forms/Button';
-import POINT_LEFT_YELLOW from '../../../assets/pointers/figure_point_left_yellow.svg';
-import POINT_LEFT_MOBILE_YELLOW from '../../../assets/pointers/figure_point_left_mobile_yellow.svg';
-import POINT_LEFT_RED from '../../../assets/pointers/figure_point_left_red.svg';
-import POINT_LEFT_MOBILE_RED from '../../../assets/pointers/figure_point_left_mobile_red.svg';
+import POINT_LEFT_SECTIONCOLOR1 from '../../../assets/pointers/figure_point_left_sectionColor1.svg';
+import POINT_LEFT_MOBILE_SECTIONCOLOR1 from '../../../assets/pointers/figure_point_left_mobile_sectionColor1.svg';
+import POINT_LEFT_SECTIONCOLOR2 from '../../../assets/pointers/figure_point_left_sectionColor2.svg';
+import POINT_LEFT_MOBILE_SECTIONCOLOR2 from '../../../assets/pointers/figure_point_left_mobile_sectionColor2.svg';
 
 export const CTAButtons = ({ children }) => (
   <div className={s.buttons}>{children}</div>
@@ -24,26 +24,26 @@ export function CTAButtonContainer({ children, className, illustration }) {
           <>
             <img
               alt=""
-              src={POINT_LEFT_YELLOW}
-              className={cN(s.illustrationPointLeft, s.yellow)}
+              src={POINT_LEFT_SECTIONCOLOR1}
+              className={cN(s.illustrationPointLeft, s.sectionColor1)}
               aria-hidden="true"
             />
             <img
               alt=""
-              src={POINT_LEFT_MOBILE_YELLOW}
-              className={cN(s.illustrationPointLeftMobile, s.yellow)}
+              src={POINT_LEFT_MOBILE_SECTIONCOLOR1}
+              className={cN(s.illustrationPointLeftMobile, s.sectionColor1)}
               aria-hidden="true"
             />
             <img
               alt=""
-              src={POINT_LEFT_RED}
-              className={cN(s.illustrationPointLeft, s.red)}
+              src={POINT_LEFT_SECTIONCOLOR2}
+              className={cN(s.illustrationPointLeft, s.sectionColor2)}
               aria-hidden="true"
             />
             <img
               alt=""
-              src={POINT_LEFT_MOBILE_RED}
-              className={cN(s.illustrationPointLeftMobile, s.red)}
+              src={POINT_LEFT_MOBILE_SECTIONCOLOR2}
+              className={cN(s.illustrationPointLeftMobile, s.sectionColor2)}
               aria-hidden="true"
             />
           </>
@@ -52,14 +52,14 @@ export function CTAButtonContainer({ children, className, illustration }) {
           <>
             <img
               alt=""
-              src={POINT_LEFT_YELLOW}
-              className={cN(s.illustrationPointRight, s.yellow)}
+              src={POINT_LEFT_SECTIONCOLOR1}
+              className={cN(s.illustrationPointRight, s.sectionColor1)}
               aria-hidden="true"
             />
             <img
               alt=""
-              src={POINT_LEFT_RED}
-              className={cN(s.illustrationPointRight, s.red)}
+              src={POINT_LEFT_SECTIONCOLOR2}
+              className={cN(s.illustrationPointRight, s.sectionColor2)}
               aria-hidden="true"
             />
           </>

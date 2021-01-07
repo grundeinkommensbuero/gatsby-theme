@@ -128,5 +128,3 @@ Done: Supporting different file formats for the Logo --> shadowing a folder and 
 - Option to provide a link for the logo (contentful?, gatsby-config?)
 - Changing import of SVGs, so they support currentColor (not really important for the white-label-theme, since it only applies to xbge custom assets, would make it easier for us to change colors though)
   - Inline SVG loader is available here for example already: `/gatsby-theme/gatsby-theme/src/components/AboutUs/index.js`
-
-
