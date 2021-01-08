@@ -14,7 +14,7 @@ In `./site/gatsby-config.js` pass parameters to the gatsby-theme via the `option
 module.exports = {
   plugins: [
     {
-      resolve: "gatsby-theme",
+      resolve: "gatsby-theme-direct-democracy",
       options: {
         message: "Hello Theme",
       },
@@ -25,7 +25,7 @@ module.exports = {
 
 ## Using the options in the gatsby theme:
 
-In `./gatsby-theme/gatsby-config.js` retrieve the parameters in `module.exports`:
+In `./gatsby-theme-direct-democracy/gatsby-config.js` retrieve the parameters in `module.exports`:
 
 ```js
 module.exports = (options) => {
@@ -117,14 +117,9 @@ Done: background-image im header and renamed assets
 Done: Supporting different file formats for the Logo --> shadowing a folder and grabbing first image in that folder with webpack
 
 
-### Further considerations
-
-- How convenient is shadowing the assets for us? Do we always have to provide a white-label-version of our main background images then? Can we bundle custom xbge illustrations in the gatsby-theme (are there license issues)?
-
-
 ### Nice-to-haves
-- More assets for the white-label-theme
-- Nicer color scheme for white-label-theme
+Done: More assets for the white-label-theme
+Done: Nicer color scheme for white-label-theme
 - Option to provide a link for the logo (contentful?, gatsby-config?)
 - Changing import of SVGs, so they support currentColor (not really important for the white-label-theme, since it only applies to xbge custom assets, would make it easier for us to change colors though)
-  - Inline SVG loader is available here for example already: `/gatsby-theme/gatsby-theme/src/components/AboutUs/index.js`
+  - Inline SVG loader is available here for example already: `/gatsby-theme/gatsby-theme-direct-democracy/src/components/AboutUs/index.js`
