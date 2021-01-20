@@ -99,8 +99,12 @@ export const pageQuery = graphql`
               role
             }
             twitterFeed
+            twitterFeedUrl
             backgroundIllustration
             socialMediaButtons
+            facebookShareText
+            facebookTargetUrl
+            twitterShareText
             blogTeaser
             questionUbi
             bodyAtTheEnd {

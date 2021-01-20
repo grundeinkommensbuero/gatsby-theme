@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import s from './style.module.less';
 
-export default () => {
+export default ({ url }) => {
   const placeholder = useCallback(node => {
     if (node !== null) {
       const scriptNode = document
@@ -19,10 +19,10 @@ export default () => {
         data-theme="light"
         data-tweet-limit="2"
         data-chrome="nofooter noborders  transparent"
-        href="https://twitter.com/expeditionbge?ref_src=twsrc%5Etfw"
+        href={url}
       >
-        Du hast den Twitter-Embed geblockt. Kein Problem – hier geht‘s zu den
-        Neuigkeiten rund um die Expedition.
+        Du hast den Twitter-Embed geblockt. Kein Problem – hier geht‘s direkt zu
+        unseren Neuigkeiten.
       </a>
       <div ref={placeholder} />
     </div>

@@ -58,9 +58,13 @@ export function ContentfulSection({ section }) {
     disableRequestListsByMail,
     callToActionReference,
     twitterFeed,
+    twitterFeedUrl,
     maps,
     backgroundIllustration,
     socialMediaButtons,
+    facebookShareText,
+    facebookTargetUrl,
+    twitterShareText,
     blogTeaser,
     preTitle,
     subTitle,
@@ -171,12 +175,16 @@ export function ContentfulSection({ section }) {
       )}
       {twitterFeed && (
         <SectionInner>
-          <TwitterEmbed />
+          <TwitterEmbed url={twitterFeedUrl} />
         </SectionInner>
       )}
       {socialMediaButtons && (
         <SectionInner>
-          <Share />
+          <Share
+            facebookShareText={facebookShareText}
+            facebookTargetUrl={facebookTargetUrl}
+            twitterShareText={twitterShareText}
+          />
         </SectionInner>
       )}
       {bodyAtTheEnd && bodyAtTheEnd.json && (

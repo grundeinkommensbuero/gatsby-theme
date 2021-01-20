@@ -68,7 +68,6 @@ export default ({ successMessage, campaignCode }) => {
               hint
             }
             goal
-            goalInbetween
             goalUnbuffered
             minimum
             startDate
