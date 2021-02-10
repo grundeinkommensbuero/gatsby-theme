@@ -5,6 +5,7 @@ module.exports = {
       options: {
         siteUrl: "https://expedition-grundeinkommen.de",
         matomoUrl: "https://expeditiongrundeinkommen.matomo.cloud",
+        isXbge: true,
       },
     },
   ],

@@ -67,12 +67,14 @@ exports.createPages = ({ graphql, actions } /* themeOptions */) => {
 
 const clientId = process.env.COGNITO_APP_CLIENT_ID;
 
-exports.onCreateWebpackConfig = ({ stage, actions }) => {
+exports.onCreateWebpackConfig = ({ stage, actions }, { isXbge }) => {
   actions.setWebpackConfig({
     plugins: [
       new webpack.DefinePlugin({
-        VERSION: JSON.stringify(gitRevisionPlugin.version()),
-        COMMITHASH: JSON.stringify(gitRevisionPlugin.commithash()),
+        VERSION: isXbge ? JSON.stringify(gitRevisionPlugin.version()) : '',
+        COMMITHASH: isXbge
+          ? JSON.stringify(gitRevisionPlugin.commithash())
+          : '',
         APP_CLIENT_ID: JSON.stringify(clientId),
         'process.env': {
           STATIC: stage === 'build-html',
