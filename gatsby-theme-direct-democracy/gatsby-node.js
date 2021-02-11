@@ -71,10 +71,10 @@ exports.onCreateWebpackConfig = ({ stage, actions }, { isXbge }) => {
   actions.setWebpackConfig({
     plugins: [
       new webpack.DefinePlugin({
-        VERSION: isXbge ? JSON.stringify(gitRevisionPlugin.version()) : '',
-        COMMITHASH: isXbge
-          ? JSON.stringify(gitRevisionPlugin.commithash())
-          : '',
+        VERSION: JSON.stringify(isXbge ? gitRevisionPlugin.version() : ''),
+        COMMITHASH: JSON.stringify(
+          isXbge ? gitRevisionPlugin.commithash() : ''
+        ),
         APP_CLIENT_ID: JSON.stringify(clientId),
         'process.env': {
           STATIC: stage === 'build-html',
