@@ -62,7 +62,11 @@ export const EnterLoginCode = ({ children }) => {
           registriert.{' '}
           <InlineButton
             onClick={() => {
-              navigate('/expedition/#generalpledge');
+              navigate(
+                process.env.IS_XBGE
+                  ? '/expedition/#generalpledge'
+                  : '/#generalpledge'
+              );
             }}
           >
             Klicke hier, um dich neu zu registrieren.
