@@ -18,19 +18,33 @@ const trackingCategory = 'ListDownload';
 
 export default ({ signaturesId, disableRequestListsByMail }) => {
   const [state, pdf, anonymous, createPdf] = useCreateSignatureList();
-  const [signUpState, userExists, signUp] = useSignUp();
+  const [signUpState, signUp] = useSignUp();
+  const [email, setEmail] = useState();
   const [loginCodeRequested, setLoginCodeRequested] = useState();
   const { isAuthenticated, userId } = useContext(AuthContext);
   const isDisabledRequestListsByMail = !!disableRequestListsByMail;
-  const iconMail = require('./mail_red.svg');
-  const iconIncognito = require('./incognito_red.svg');
+  const iconMail = require('../../../assets/icons/mail.svg');
+  const iconIncognito = require('../../../assets/icons/incognito.svg');
+
+  useEffect(() => {
+    // If user was registered proceed by creating list
+    if (signUpState === 'success') {
+      createPdf({ email, campaignCode: signaturesId });
+    } else if (signUpState === 'userExists') {
+      createPdf({
+        email,
+        campaignCode: signaturesId,
+        userExists: true,
+      });
+    }
+  }, [signUpState]);
 
   useEffect(() => {
     // Create pdf if user has authenticated after requesting their login code.
     if (isAuthenticated && typeof loginCodeRequested !== 'undefined') {
       createPdf({
         campaignCode: signaturesId,
-        userExists,
+        userExists: true,
         // We only want to update the user's newsletter consent,
         // if they did not come from identified stage (loginCodeRequested = false)
         shouldNotUpdateUser: loginCodeRequested,
@@ -38,18 +52,16 @@ export default ({ signaturesId, disableRequestListsByMail }) => {
     }
   }, [isAuthenticated, loginCodeRequested]);
 
-  // After user starts sign in process or if they are identified and request the list,
-  // show EnterLoginCode component
+  // If user is not authorised after entering email, or if they are identified and request the list
   if (
-    (signUpState === 'success' || loginCodeRequested) &&
-    !isAuthenticated &&
-    !anonymous
+    state === 'unauthorized' ||
+    (loginCodeRequested && !isAuthenticated && !anonymous)
   ) {
     return (
-      <EnterLoginCode preventSignIn={signUpState === 'success'}>
+      <EnterLoginCode>
         <p>
-          Zur Verifizierung gib bitte den Code ein, den wir dir gerade in einer
-          E-Mail geschickt haben. Alternativ kannst du auch eine Liste{' '}
+          Hey, wir kennen dich schon! Bitte gib den Code ein, den wir dir gerade
+          in einer E-Mail geschickt haben. Alternativ kannst du auch eine Liste{' '}
           <InlineButton
             onClick={() => {
               createPdf({ campaignCode: signaturesId, anonymous: true });
@@ -111,6 +123,11 @@ export default ({ signaturesId, disableRequestListsByMail }) => {
           </p>
         )}
         <DownloadListsNextSteps>
+          {!anonymous && signUpState !== 'userExists' && (
+            <StepListItem icon="mail">
+              Check deine Mails und klick den Link, damit du dabei bist.
+            </StepListItem>
+          )}
           {anonymous && (
             <StepListItem icon="download">
               <LinkButton target="_blank" href={pdf.url}>
@@ -146,6 +163,7 @@ export default ({ signaturesId, disableRequestListsByMail }) => {
           }
 
           // If user is not identified
+          setEmail(e.email);
           signUp({ newsletterConsent: true, ...e });
         }}
         validate={values => validate(values, userId)}
