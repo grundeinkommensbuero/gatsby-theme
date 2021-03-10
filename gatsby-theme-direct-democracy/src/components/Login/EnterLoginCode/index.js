@@ -13,7 +13,7 @@ import { InlineButton } from '../../Forms/Button';
 import { CTAButtonContainer, CTAButton } from '../../Layout/CTAButton';
 import s from './style.module.less';
 
-export const EnterLoginCode = ({ children }) => {
+export const EnterLoginCode = ({ children, preventSignIn }) => {
   const { tempEmail, setTempEmail } = useContext(AuthContext);
   const [
     answerChallengeState,
@@ -23,7 +23,11 @@ export const EnterLoginCode = ({ children }) => {
   const [signInState, startSignIn] = useSignIn();
 
   useEffect(() => {
-    startSignIn();
+    // We don't want to start sign in again, if flag is set
+    // (we might already have started sign in outside of component)
+    if (!preventSignIn) {
+      startSignIn();
+    }
   }, []);
 
   if (answerChallengeState === 'loading' || signInState === 'loading') {
@@ -62,11 +66,7 @@ export const EnterLoginCode = ({ children }) => {
           registriert.{' '}
           <InlineButton
             onClick={() => {
-              navigate(
-                process.env.IS_XBGE
-                  ? '/expedition/#generalpledge'
-                  : '/#generalpledge'
-              );
+              navigate('/expedition/#generalpledge');
             }}
           >
             Klicke hier, um dich neu zu registrieren.
