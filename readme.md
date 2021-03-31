@@ -1,90 +1,24 @@
-# Expedition Grundeinkommen / Gatsby Theme
+## Gatsby Theme
 
-## Yarn workspaces
+We use Gatsby as a React framework for the platform’s website. Gatsby provides the option to create reusable scaffolds that can be used in multiple projects via Gatsby Themes. Running our general setup script `direct-democracy-digital setup` will create a Gatsby project in the `site` folder with our Gatsby Theme pre-installed.
 
-Develop site: `yarn workspace site develop` (theme can not run in dev mode directly, since the gatsby-config is exported as a function)
+### Customization
 
-## Shadow site
+To provide you with extended options to customize our theme according to your needs, we use [Gatsby’s Shadowing concept](https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing). **Shadowing** allows you to [extend](https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/#extending-shadowed-files) and [replace](https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/#shadowing-other-files) any file located in the **`/src` folder** in [our Gatsby Theme repo](https://github.com/grundeinkommensbuero/gatsby-theme/tree/master/gatsby-theme-direct-democracy/sr) with your own implementation. 
 
-## Configure site
+To customize the CSS we provide a set of `_config.less` files. Any variables you provide with new values in these files will be overwritten, otherwise the default value will be used.
 
-In `./site/gatsby-config.js` pass parameters to the gatsby-theme via the `options` object:
+#### Basic css and fonts
 
-```js
-module.exports = {
-  plugins: [
-    {
-      resolve: "gatsby-theme-direct-democracy",
-      options: {
-        message: "Hello Theme",
-      },
-    },
-  ],
-};
-```
+In the same fashion you can change the [basic CSS setup](https://github.com/grundeinkommensbuero/gatsby-theme/blob/master/gatsby-theme-direct-democracy/src/style/base_default.less) in the `site/src/gatsby-theme-direct-democracy/base_config.less` file. If you want to use your own custom font, you can do a @font-face import in `site/src/gatsby-theme-direct-democracy/webfont_config.less`. 
 
-## Using the options in the gatsby theme:
+#### Styles and colors
 
-In `./gatsby-theme-direct-democracy/gatsby-config.js` retrieve the parameters in `module.exports`:
+To change the color scheme and some style variables you can add the variables in  `site/src/gatsby-theme-direct-democracy/vars_config.less`. You can see [all available variables and default values here](https://github.com/grundeinkommensbuero/gatsby-theme/blob/master/gatsby-theme-direct-democracy/src/style/vars_default.less). 
 
-```js
-module.exports = (options) => {
-  console.log("***");
-  console.log(options.message);
-  console.log("***");
-  return config;
-};
-```
+> Regarding the color variables it’s important to note that the naming is based on our system of alternating colors for subsequent sections. In this alternative example the first section on a page will have a yellow background, the second will be red and the third will be grey and then the pattern repeats. The font color of text in the second section can be configured separately for the other sections another section color will be used. It’s best to test your color scheme on the development site to understand how this system works. 
 
-## For the documentation:
-
-- Explain shadowing and mention that you have to rebuild the dev bundle, if you added a new file that you want to be shadowed
-- Link to https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/ and briefly explain how to import and extend shadowed files and 
-- Show hot to change paddings and margins
-- Describe how the css-color-variables work in relation to the section colors, modals and buttons and show which files would have to be modified to change that
-- Explain shadowing for the Logo and how different file formats and file names are accepted, it will just take the first image (.png, .jpg, .svg) in `src/gatsby-theme/assets/logo`
-
-
-
-
-## Status: changes for the design and assets
-
-We mainly want to use gatsbys shadowing feature:
-https://www.gatsbyjs.com/docs/themes/shadowing/
-
-Only if necessary, we want to pass javascript-parameters to the file via the `gatsby-config.js`
-
---> More freedom, but also more responsibility for the users of the theme.
-
-### For the gatsby-theme shadowing feature
-
-Done: Moving `src/components/style` to `/src/style`  
-Done: Creating `src/assets` all reusable assets ~~that are not tightly coupled to a component~~ should be there.  
-Done: The main less-definitions – `base.less`, `vars.less`, `webfont.less` – should be split up into `{file}_config.less`, `{file}_default.less` and `{file}.less}` components:
-
-   Done: \_default: sets the white-label-theme  
-   Done: \_config: can be shadowed by the users of the theme (and us) to overwrite and add to the defaults.
-   Done: {file}.less imports both so the defaults are always defined, even if users choose to only partially change them
-
-
-### Less variables
-
-1. Renaming variables in `style/vars_default.less`:
-
-Idea:
-```less
-@red: --> @primaryColor
-@blueBright: --> @secondaryColor
-@yellow: --> @tertiarycolor (@accentColor)
---> @darkGrey
-@grey: --> @midGrey
-@greyBright: --> @lightGrey
-@white: --> @white (@background)
---> @black
-```
-
-Done:
-```less
+``` less
 @sectionColor1: #fef377;        // @yellow
 @sectionColor2: #fc484c;        // @red
 @textOnSectionColor2: #f5f5f5;  // @greyBright
@@ -97,29 +31,6 @@ Done:
 @strokeOnIcons: #1D1D1B;        // @black
 ```
 
-**--> Necessary re-factor in the individual style modules in the components**
+#### Custom Logo
 
-Done: Adding variables in `style/vars_default.less`
-
-```less
-@fontStack: Tahoma, Arial, Helvetica, sans-serif;
-```
-
-The `_config` is shadowed in our use case:
-
-```less
-@fontStack: "Ideal", Tahoma, Arial, Helvetica, sans-serif;
-```
-
-
-Done: html-tag: font-size (default)  
-Done: background-image im header and renamed assets 
-Done: Supporting different file formats for the Logo --> shadowing a folder and grabbing first image in that folder with webpack
-
-
-### Nice-to-haves
-Done: More assets for the white-label-theme
-Done: Nicer color scheme for white-label-theme
-- Option to provide a link for the logo (contentful?, gatsby-config?)
-- Changing import of SVGs, so they support currentColor (not really important for the white-label-theme, since it only applies to xbge custom assets, would make it easier for us to change colors though)
-  - Inline SVG loader is available here for example already: `/gatsby-theme/gatsby-theme-direct-democracy/src/components/AboutUs/index.js`
+To provide your own logo is even easier: You can add your own logo by storing it in `site/src/gatsby-theme-direct-democracy/assets/logo`. The logo can be stored as PNG, JPEG or SVG.
