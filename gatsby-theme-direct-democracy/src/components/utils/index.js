@@ -156,3 +156,10 @@ export function getMailtoUrl(to, subject, body) {
   }
   return url;
 }
+
+// MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+export const fixedEncodeURIComponent = str => {
+  return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
+    return '%' + c.charCodeAt(0).toString(16);
+  });
+};

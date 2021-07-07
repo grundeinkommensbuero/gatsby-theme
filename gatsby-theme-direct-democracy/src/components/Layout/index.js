@@ -27,6 +27,9 @@ function Template({ children, sections }) {
           slug
           title
         }
+        facebookUrl
+        twitterUrl
+        instagramUrl
         mainMenu {
           ... on Node {
             ... on ContentfulStaticContent {
@@ -104,8 +107,12 @@ function Template({ children, sections }) {
                 role
               }
               twitterFeed
+              twitterFeedUrl
               backgroundIllustration
               socialMediaButtons
+              facebookShareText
+              facebookTargetUrl
+              twitterShareText
               blogTeaser
               questionUbi
               bodyAtTheEnd {
@@ -161,6 +168,9 @@ function Template({ children, sections }) {
       <Footer
         footerText={globalStuff.footerText}
         footerMenu={globalStuff.footerMenu}
+        facebookUrl={globalStuff.facebookUrl}
+        twitterUrl={globalStuff.twitterUrl}
+        instagramUrl={globalStuff.instagramUrl}
       />
     </>
   );
